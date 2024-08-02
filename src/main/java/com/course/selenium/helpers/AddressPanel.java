@@ -1,0 +1,31 @@
+package com.course.selenium.helpers;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
+//[contains(text(),\"address1\")]")
+public class AddressPanel {
+
+    public final String header;
+    public final String content;
+
+    public AddressPanel(WebElement root) {
+        WebElement header = root.findElement(By.cssSelector(".address-body >h4"));
+        List<WebElement> addressesList = root.findElements(By.cssSelector(".address br"));
+
+        this.header = header.getText();
+
+        StringBuilder sb = new StringBuilder();
+
+
+        for (WebElement info : addressesList) {
+            String infoText = info.getText().strip();
+            if (!infoText.isEmpty()) {
+                sb.append(infoText).append(" ");
+            }
+        }
+
+        content = sb.toString().strip();
+    }
+}
