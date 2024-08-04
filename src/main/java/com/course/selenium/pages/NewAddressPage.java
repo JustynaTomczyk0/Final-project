@@ -33,7 +33,7 @@ public class NewAddressPage {
     public NewAddressPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        waitForPageLoaded(driver, By.xpath("//h1[contains(text(),\"New address\")]"), "https://mystore-testlab.coderslab.pl/index.php?controller=address");
+        waitForPageLoaded(driver, By.xpath("//h1[contains(text(),\"New address\")]"), "index.php?controller=address");
     }
 
     public void enterAlias(String alias) {

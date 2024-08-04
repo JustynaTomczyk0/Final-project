@@ -5,11 +5,10 @@ import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.sql.Driver;
 
 public class BrowserFactory {
 
-    private static final String URL = "https://mystore-testlab.coderslab.pl/index.php?";
+    private static final String url = "https://mystore-testlab.coderslab.pl/index.php?";
 
     private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
 
@@ -22,7 +21,7 @@ public class BrowserFactory {
         driverThreadLocal.set(new FirefoxDriver());
         WebDriver driver = driverThreadLocal.get();
         driver.manage().window().maximize();
-        driver.get(URL);
+        driver.get(url);
     }
 
     @After

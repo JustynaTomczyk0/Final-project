@@ -5,14 +5,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import static com.course.selenium.helpers.Helpers.waitForPageLoaded;
 
 public class AccountPage {
+
     private final WebDriver driver;
 
     @FindBy(css = "#addresses-link")
     WebElement addressButton;
+
+    @FindBy(xpath = "//span[contains(text(),\"Home\")]")
+    WebElement logo;
 
     public AccountPage(WebDriver driver) {
         this.driver = driver;
@@ -22,6 +25,11 @@ public class AccountPage {
 
     public void clickAddresses(){
         addressButton.click();
+    }
+
+    public void clickLogo(){
+        logo.click();
+
     }
 
 

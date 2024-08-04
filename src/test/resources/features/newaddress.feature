@@ -1,5 +1,6 @@
 Feature: add new address
 
+  @done
   Scenario Outline: Add a new user address
     Given a registered user is on the home page
     And the user clicks on Sign in
