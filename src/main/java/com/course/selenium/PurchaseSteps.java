@@ -95,6 +95,6 @@ public class PurchaseSteps {
     @Then("the user takes a screenshot with the order confirmation and the amount")
     public void theUserTakesAScreenshotWithTheOrderConfirmationAndTheAmount() {
         orderConfirmationPage = new OrderConfirmationPage(driver);
-        orderConfirmationPage.takeScreenshot(driver,"C:\\Users\\Justyna\\Desktop");
+        orderConfirmationPage.takeScreenshot(driver,"C:\\");
     }
 }

@@ -8,9 +8,9 @@ Feature: add new address
     And the user clicks Sign in button
     And the user clicks Addresses on Your account page
     When the user clicks Create new address button
-    And the user fills the address form with "<alias>", "<address>", "<city>", "<postCode>", "<phone>"
+    And the user fills the address form with "<address>", "<city>", "<postCode>", "<phone>"
     And the user clicks Save button
     Then Your addresses page should include the new address
     Examples:
-      | alias    | address | city | postCode | phone     |
-      | address2 | abc     | Lodz | 93-444   | 487926641 |
+      |address  | city | postCode | phone    |
+      |def      | Lodz | 93-444   | 487926641|

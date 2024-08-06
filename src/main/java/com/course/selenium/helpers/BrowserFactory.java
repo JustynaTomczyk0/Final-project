@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BrowserFactory {
 
-    private static final String url = "https://mystore-testlab.coderslab.pl/index.php?";
+    private static final String url = "https://prod-course.coderslab.com/index.php?";
 
     private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
 

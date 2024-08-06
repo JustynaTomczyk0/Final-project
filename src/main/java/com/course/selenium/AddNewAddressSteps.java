@@ -7,6 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
+
 import java.util.Map;
 
 import static com.course.selenium.helpers.Helpers.getRandomAlias;
@@ -62,13 +63,13 @@ public class AddNewAddressSteps {
 
     }
 
-    @And("the user fills the address form with {string}, {string}, {string}, {string}, {string}")
-    public void theUserFillsTheAddressFormWith(String alias, String address, String city, String postCode, String phone) {
+    @And("the user fills the address form with {string}, {string}, {string}, {string}")
+    public void theUserFillsTheAddressFormWith(String address, String city, String postCode, String phone) {
         addressAlias = getRandomAlias();
 
         newAddressPage = new NewAddressPage(driver);
 
-        newAddressPage.enterAlias(alias);
+        newAddressPage.enterAlias(addressAlias);
         newAddressPage.enterAddress(address);
         newAddressPage.enterCity(city);
         newAddressPage.enterPostCode(postCode);
@@ -86,8 +87,14 @@ public class AddNewAddressSteps {
         addressesPage = new AddressesPage(driver);
 
         Map<String, String> addressesByAlias = addressesPage.getAddressesByAlias();
-        String key = addressAlias.toUpperCase();
+        String key = addressAlias;
         assertTrue(addressesByAlias.containsKey(key));
-        assertEquals("abc Lodz 93-444 487926641", addressesByAlias.get(key));
+        assertEquals("Anna Manna\n" +
+                "def\n" +
+                "Lodz\n" +
+                "93-444\n" +
+                "United Kingdom\n" +
+                "487926641", addressesByAlias.get(key));
+       assertTrue(addressesByAlias.get(key).contains("def"));
     }
 }

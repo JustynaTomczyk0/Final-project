@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
-//[contains(text(),\"address1\")]")
 public class AddressPanel {
 
     public final String header;
@@ -12,9 +11,10 @@ public class AddressPanel {
 
     public AddressPanel(WebElement root) {
         WebElement header = root.findElement(By.cssSelector(".address-body >h4"));
-        List<WebElement> addressesList = root.findElements(By.cssSelector(".address br"));
+        List<WebElement> addressesList = root.findElements(By.cssSelector("address"));
 
         this.header = header.getText();
+       // this.content = addressesList.toString().strip();
 
         StringBuilder sb = new StringBuilder();
 
@@ -25,7 +25,7 @@ public class AddressPanel {
                 sb.append(infoText).append(" ");
             }
         }
-
         content = sb.toString().strip();
+
     }
 }
