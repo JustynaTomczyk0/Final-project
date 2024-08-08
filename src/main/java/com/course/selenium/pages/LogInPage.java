@@ -10,8 +10,6 @@ import static com.course.selenium.helpers.Helpers.waitForPageLoaded;
 
 public class LogInPage {
 
-    private final WebDriver driver;
-
     @FindBy(id = "field-email")
     WebElement emailField;
 
@@ -22,7 +20,6 @@ public class LogInPage {
     WebElement signInButton;
 
     public LogInPage(WebDriver driver) {
-        this.driver = driver;
         PageFactory.initElements(driver, this);
         waitForPageLoaded(driver, By.xpath("//h1[contains(text(),\"Log in to your account\")]"), "=authentication&back=my-account");
     }

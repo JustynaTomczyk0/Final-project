@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 
 public class PurchaseSteps {
 
-    private final WebDriver driver = BrowserFactory.getDriver();
+    WebDriver driver = BrowserFactory.getDriver();
     AccountPage accountPage;
     HomePage homePage;
     SearchResultsPage searchResultsPage;
@@ -23,23 +23,23 @@ public class PurchaseSteps {
     public void theUserClickOnMyStoreLogo() {
         accountPage = new AccountPage(driver);
         accountPage.clickLogo();
+        homePage = new HomePage(driver);
     }
 
     @And("the user searches Hummingbird Printed Sweater on the home page")
     public void theUserSearchesHummingbirdPrintedSweaterOnTheHomePage() {
-        homePage = new HomePage(driver);
         homePage.searchingProduct("Hummingbird Printed Sweater");
+        searchResultsPage = new SearchResultsPage(driver);
     }
 
     @And("the user clicks on the name of product")
     public void theUserClicksOnTheNameOfProduct() {
-        searchResultsPage = new SearchResultsPage(driver);
         searchResultsPage.chooseProduct();
+        productPage = new ProductPage(driver);
     }
 
     @And("the user chooses size M")
     public void theUserChoosesSizeM() {
-        productPage = new ProductPage(driver);
         productPage.selectSize("M");
     }
 
@@ -52,23 +52,23 @@ public class PurchaseSteps {
     @And("the user adds products to cart")
     public void theUserAddsProductsToCart() {
         productPage.addToCart();
+        layerCard = new LayerCard(driver);
     }
 
     @When("the user clicks Proceed to checkout")
     public void theUserClicksProceedToCheckout() {
-        layerCard = new LayerCard(driver);
         layerCard.ptc();
+        shoppingCart = new ShoppingCart(driver);
     }
 
     @And("the user clicks Proceed to checkout in the Shopping Cart")
     public void theUserClicksProceedToCheckoutInTheShoppingCart() {
-        shoppingCart = new ShoppingCart(driver);
         shoppingCart.proceedToCheckout();
+        personalInformationPage = new PersonalInformationPage(driver);
     }
 
     @And("the user confirms address and clicks Continue")
     public void theUserConfirmsAddressAndClicksContinue() {
-        personalInformationPage = new PersonalInformationPage(driver);
         personalInformationPage.confirmAddress();
     }
 
@@ -90,11 +90,11 @@ public class PurchaseSteps {
     @And("the user clicks Place order button")
     public void theUserClicksPlaceOrderButton() {
         personalInformationPage.placeOrder();
+        orderConfirmationPage = new OrderConfirmationPage(driver);
     }
 
-    @Then("the user takes a screenshot with the order confirmation and the amount")
-    public void theUserTakesAScreenshotWithTheOrderConfirmationAndTheAmount() {
-        orderConfirmationPage = new OrderConfirmationPage(driver);
-        orderConfirmationPage.takeScreenshot(driver,"C:\\");
+    @Then("the user should takes a screenshot with the order confirmation and the amount")
+    public void theUserShouldTakesAScreenshotWithTheOrderConfirmationAndTheAmount() {
+        orderConfirmationPage.takeScreenshot(driver,"C:\\zadanie");
     }
 }

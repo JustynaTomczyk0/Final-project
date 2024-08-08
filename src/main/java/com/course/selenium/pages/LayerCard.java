@@ -9,13 +9,10 @@ import static com.course.selenium.helpers.Helpers.waitForPageLoaded;
 
 public class LayerCard {
 
-    private final WebDriver driver;
-
     @FindBy(xpath = "//a[contains(@class,\"btn btn-primary\") and contains(text(),\"Proceed to checkout\")]")
     WebElement ptcButton;
 
     public LayerCard(WebDriver driver) {
-        this.driver = driver;
         PageFactory.initElements(driver, this);
         waitForPageLoaded(driver, By.cssSelector("#myModalLabel"), "controller=product#/2-size-m");
     }

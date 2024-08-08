@@ -9,8 +9,6 @@ import static com.course.selenium.helpers.Helpers.waitForPageLoaded;
 
 public class PersonalInformationPage {
 
-    private final WebDriver driver;
-
     @FindBy(xpath = "//button[@name=\"confirm-addresses\"]")
     WebElement confirmAddressButton;
 
@@ -28,7 +26,6 @@ public class PersonalInformationPage {
 
 
     public PersonalInformationPage(WebDriver driver) {
-        this.driver = driver;
         PageFactory.initElements(driver, this);
         waitForPageLoaded(driver, By.id("checkout-personal-information-step"), "index.php?controller=order");
     }

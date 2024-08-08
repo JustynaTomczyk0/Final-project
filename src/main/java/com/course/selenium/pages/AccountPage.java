@@ -9,8 +9,6 @@ import static com.course.selenium.helpers.Helpers.waitForPageLoaded;
 
 public class AccountPage {
 
-    private final WebDriver driver;
-
     @FindBy(css = "#addresses-link")
     WebElement addressButton;
 
@@ -18,7 +16,6 @@ public class AccountPage {
     WebElement logo;
 
     public AccountPage(WebDriver driver) {
-        this.driver = driver;
         PageFactory.initElements(driver, this);
         waitForPageLoaded(driver, By.xpath("//h1[contains(text(),\"Your account\")]"), "/index.php?controller=my-account");
     }

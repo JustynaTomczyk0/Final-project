@@ -14,7 +14,6 @@ public class AddressPanel {
         List<WebElement> addressesList = root.findElements(By.cssSelector("address"));
 
         this.header = header.getText();
-       // this.content = addressesList.toString().strip();
 
         StringBuilder sb = new StringBuilder();
 

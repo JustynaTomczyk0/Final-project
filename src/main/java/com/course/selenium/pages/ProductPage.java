@@ -11,8 +11,6 @@ import static com.course.selenium.helpers.Helpers.waitForPageLoaded;
 
 public class ProductPage {
 
-    private final WebDriver driver;
-
     @FindBy(id = "group_1")
     private WebElement dropdownArrow;
 
@@ -23,7 +21,6 @@ public class ProductPage {
     WebElement addToCartButton;
 
     public ProductPage(WebDriver driver) {
-        this.driver = driver;
         PageFactory.initElements(driver, this);
         waitForPageLoaded(driver, By.xpath("//h1[contains(text(), \"Hummingbird printed sweater\")]"), "product=2&id_product_attribute");
     }

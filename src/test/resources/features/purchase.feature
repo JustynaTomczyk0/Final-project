@@ -19,5 +19,5 @@ Feature: purchase
     And the user chooses Pay by check as a payment method
     And the user agrees to the terms of service
     And the user clicks Place order button
-    Then the user takes a screenshot with the order confirmation and the amount
+    Then the user should takes a screenshot with the order confirmation and the amount
 

@@ -10,8 +10,6 @@ import static com.course.selenium.helpers.Helpers.waitForPageLoaded;
 
 public class NewAddressPage {
 
-    private final WebDriver driver;
-
     @FindBy(css = "#field-alias")
     WebElement aliasField;
 
@@ -31,7 +29,6 @@ public class NewAddressPage {
     WebElement saveButton;
 
     public NewAddressPage(WebDriver driver) {
-        this.driver = driver;
         PageFactory.initElements(driver, this);
         waitForPageLoaded(driver, By.xpath("//h1[contains(text(),\"New address\")]"), "index.php?controller=address");
     }

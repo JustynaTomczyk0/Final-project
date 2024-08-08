@@ -12,7 +12,6 @@ import java.util.Map;
 import static com.course.selenium.helpers.Helpers.waitForPageLoaded;
 
 public class AddressesPage {
-    private final WebDriver driver;
 
     @FindBy(xpath = "//span[contains(text(),\"Create new address\")]")
     WebElement createNewAccountButton;
@@ -21,7 +20,6 @@ public class AddressesPage {
     private List<WebElement> yourAddresses;
 
     public AddressesPage(WebDriver driver) {
-        this.driver = driver;
         PageFactory.initElements(driver, this);
         waitForPageLoaded(driver, By.xpath("//h1[contains(text(),\"Your addresses\")]"), "index.php?controller=addresses");
     }

@@ -7,16 +7,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
-
 import java.util.Map;
-
 import static com.course.selenium.helpers.Helpers.getRandomAlias;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class AddNewAddressSteps {
 
-    private final WebDriver driver = BrowserFactory.getDriver();
+    WebDriver driver = BrowserFactory.getDriver();
     HomePage homePage;
     LogInPage logInPage;
     AccountPage accountPage;
@@ -95,6 +93,6 @@ public class AddNewAddressSteps {
                 "93-444\n" +
                 "United Kingdom\n" +
                 "487926641", addressesByAlias.get(key));
-       assertTrue(addressesByAlias.get(key).contains("def"));
+       assertTrue(addressesByAlias.get(key).contains("def") && addressesByAlias.get(key).contains("Lodz"));
     }
 }
